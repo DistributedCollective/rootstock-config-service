@@ -19,7 +19,7 @@ spec:
         app: rootstock-config-service
     spec:
       containers:
-        - image: sovryn/safe-config
+        - image: sovryn/rootstock-config-service
           imagePullPolicy: Always
           envFrom:
           - secretRef:

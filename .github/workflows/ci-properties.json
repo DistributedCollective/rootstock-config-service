@@ -9,6 +9,7 @@
   "dockerfile_path": ".",
   "APP_ENV_VARS": {
     "DJANGO_ALLOWED_HOSTS": "safe-config.sovryn.app",
+    "CSRF_TRUSTED_ORIGINS": "http://localhost:${NGINX_HOST_PORT}",
     "CGW_URL": "https://safe-client.sovryn.app",
     "POSTGRES_NAME": "config-service",
     "POSTGRES_PORT": 5432,
@@ -20,6 +21,8 @@
     "GUNICORN_WEB_RELOAD": "false",
     "NGINX_ENVSUBST_OUTPUT_DIR": "/etc/nginx/",
     "NGINX_HOST_PORT": "80",
+    "DOCKER_NGINX_VOLUME_ROOT":"/nginx",
+    "GUNICORN_BIND_SOCKET": "unix:${DOCKER_NGINX_VOLUME_ROOT}/gunicorn.socketA",
     "PYTHONDONTWRITEBYTECODE": "true",
     "ROOT_LOG_LEVEL": "INFO",
     "AWS_STORAGE_BUCKET_NAME": "sov-gnosis-config",
