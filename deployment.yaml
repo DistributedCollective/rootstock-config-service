@@ -28,6 +28,9 @@ spec:
               name: rootstock-config-service-secret
           name: web
           resources: {}
+          ports:
+          - containerPort: 8000
+            protocol: TCP
           tty: true
           volumeMounts:
             - mountPath: /nginx

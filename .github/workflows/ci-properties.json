@@ -8,9 +8,6 @@
   "dev_branch": "rootstock-stg",
   "dockerfile_path": ".",
   "APP_ENV_VARS": {
-    "DJANGO_ALLOWED_HOSTS": "safe-config.sovryn.app",
-    "CSRF_TRUSTED_ORIGINS": "http://localhost:${NGINX_HOST_PORT}",
-    "CGW_URL": "https://safe-client.sovryn.app",
     "POSTGRES_NAME": "config-service",
     "POSTGRES_PORT": 5432,
     "DEBUG": "false",
@@ -22,17 +19,23 @@
     "NGINX_ENVSUBST_OUTPUT_DIR": "/etc/nginx/",
     "NGINX_HOST_PORT": "80",
     "DOCKER_NGINX_VOLUME_ROOT":"/nginx",
-    "GUNICORN_BIND_SOCKET": "unix:${DOCKER_NGINX_VOLUME_ROOT}/gunicorn.socketA",
+    "GUNICORN_BIND_SOCKET": "unix:/nginx/gunicorn.socket",
     "PYTHONDONTWRITEBYTECODE": "true",
     "ROOT_LOG_LEVEL": "INFO",
-    "AWS_STORAGE_BUCKET_NAME": "sov-gnosis-config",
+    "AWS_STORAGE_BUCKET_NAME": "sovryn-gnosis-config",
     "DJANGO_SU_NAME": "sovryn",
     "DJANGO_SU_EMAIL": "sovryn@sovryn.app"
   },
   "DEV_ENV_VARS": {
+    "CGW_URL": "https://safe-client.test.sovryn.app",
+    "DJANGO_ALLOWED_HOSTS": "localhost",
+    "CSRF_TRUSTED_ORIGINS": "http://localhost:80",
     "NODE_ENV": "test"
   },
   "PROD_ENV_VARS": {
+    "CGW_URL": "https://safe-client.sovryn.app",
+    "DJANGO_ALLOWED_HOSTS": "localhost",
+    "CSRF_TRUSTED_ORIGINS": "http://localhost:80",
     "NODE_ENV": "production"
   }
 }
