@@ -28,13 +28,13 @@
   },
   "DEV_ENV_VARS": {
     "CGW_URL": "https://safe-client.test.sovryn.app",
-    "DJANGO_ALLOWED_HOSTS": "safe-client.test.sovryn.app",
+    "DJANGO_ALLOWED_HOSTS": "safe-config.test.sovryn.app",
     "CSRF_TRUSTED_ORIGINS": "http://localhost:80",
     "NODE_ENV": "test"
   },
   "PROD_ENV_VARS": {
     "CGW_URL": "https://safe-client.sovryn.app",
-    "DJANGO_ALLOWED_HOSTS": "safe-client.sovryn.app",
+    "DJANGO_ALLOWED_HOSTS": "safe-config.sovryn.app",
     "CSRF_TRUSTED_ORIGINS": "http://localhost:80",
     "NODE_ENV": "production"
   }
