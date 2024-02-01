@@ -27,7 +27,13 @@ spec:
           - secretRef:
               name: rootstock-config-service-secret
           name: web
-          resources: {}
+          resources:
+            requests:
+              memory: "2048Mi"
+              cpu: "200m"
+            limits:
+              memory: "2048Mi"
+              cpu: "400m"
           ports:
           - containerPort: 8000
             protocol: TCP
@@ -64,14 +70,10 @@ apiVersion: v1
 kind: Service
 metadata:
   name: rootstock-config-service
-  annotations:
-    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
-    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:us-east-2:768438872063:certificate/9fa02b26-0ee5-4301-bdd6-8474344885ff
 spec:
   selector:
     app: rootstock-config-service
   ports:
     - port: 443
       targetPort: 80
-  type: LoadBalancer
----
+  type: NodePort
